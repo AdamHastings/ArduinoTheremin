@@ -51,11 +51,11 @@ void loop() {
         float d2 = getDistance(trig2, echo2);
         int pitch = getPitch(d1);
         int veloc = getVeloc(d2);
-        if (pitch != old_pitch) {
+        if (pitch != old_pitch && veloc != old_veloc) {
             sendMIDI(NOTE_OFF, old_pitch, 0x0);
             sendMIDI(NOTE_ON,  pitch,   veloc);
         }
         int old_pitch = pitch;
-        int olc_veloc = veloc;
+        int old_veloc = veloc;
     }
 }
